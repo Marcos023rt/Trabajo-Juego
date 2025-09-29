@@ -79,5 +79,4 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D raycasthit = Physics2D.BoxCast(boxcolider2d.bounds.center, new Vector2(boxcolider2d.bounds.size.x, boxcolider2d.bounds.size.y), 0f, Vector2.down, 0.2f, suelo);
         return raycasthit.collider != null;
     }
-
 }
