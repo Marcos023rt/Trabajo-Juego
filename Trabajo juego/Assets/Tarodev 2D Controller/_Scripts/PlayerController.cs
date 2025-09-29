@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using System.Collections;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 namespace TarodevController
 {
@@ -14,7 +16,19 @@ namespace TarodevController
     public class PlayerController : MonoBehaviour, IPlayerController
     {
         [SerializeField] private ScriptableStats _stats;
-        private Rigidbody2D _rb;
+
+        #region Dash
+        [Header("Dash Settings")]
+        [SerializeField] private float dashingPower = 24f;
+        [SerializeField] private float dashingTime = 0.2f;
+        [SerializeField] private float dashCooldown = 1f;
+        private Vector2 _lastDashDir = Vector2.right;
+        private bool canDash = true;
+        private bool isDashing;
+        private float originalGravity;
+        #endregion
+
+        private Rigidbody2D rb;
         private CapsuleCollider2D _col;
         private FrameInput _frameInput;
         private Vector2 _frameVelocity;
@@ -32,7 +46,7 @@ namespace TarodevController
 
         private void Awake()
         {
-            _rb = GetComponent<Rigidbody2D>();
+            rb = GetComponent<Rigidbody2D>();
             _col = GetComponent<CapsuleCollider2D>();
 
             _cachedQueryStartInColliders = Physics2D.queriesStartInColliders;
@@ -42,6 +56,8 @@ namespace TarodevController
         {
             _time += Time.deltaTime;
             GatherInput();
+
+            HandleDashInput();
         }
 
         private void GatherInput()
@@ -68,6 +84,7 @@ namespace TarodevController
 
         private void FixedUpdate()
         {
+            if (isDashing) return;
             CheckCollisions();
 
             HandleJump();
@@ -78,7 +95,7 @@ namespace TarodevController
         }
 
         #region Collisions
-        
+
         private float _frameLeftGrounded = float.MinValue;
         private bool _grounded;
 
@@ -115,7 +132,6 @@ namespace TarodevController
 
         #endregion
 
-
         #region Jumping
 
         private bool _jumpToConsume;
@@ -129,7 +145,7 @@ namespace TarodevController
 
         private void HandleJump()
         {
-            if (!_endedJumpEarly && !_grounded && !_frameInput.JumpHeld && _rb.velocity.y > 0) _endedJumpEarly = true;
+            if (!_endedJumpEarly && !_grounded && !_frameInput.JumpHeld && rb.velocity.y > 0) _endedJumpEarly = true;
 
             if (!_jumpToConsume && !HasBufferedJump) return;
 
@@ -154,6 +170,7 @@ namespace TarodevController
 
         private void HandleDirection()
         {
+           
             if (_frameInput.Move.x == 0)
             {
                 var deceleration = _grounded ? _stats.GroundDeceleration : _stats.AirDeceleration;
@@ -163,6 +180,7 @@ namespace TarodevController
             {
                 _frameVelocity.x = Mathf.MoveTowards(_frameVelocity.x, _frameInput.Move.x * _stats.MaxSpeed, _stats.Acceleration * Time.fixedDeltaTime);
             }
+           
         }
 
         #endregion
@@ -185,7 +203,38 @@ namespace TarodevController
 
         #endregion
 
-        private void ApplyMovement() => _rb.velocity = _frameVelocity;
+        private void ApplyMovement() => rb.velocity = _frameVelocity;
+
+        #region Dash
+        private void HandleDashInput()
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && canDash && !isDashing)
+            {
+                if (_frameInput.Move != Vector2.zero)
+                    _lastDashDir = _frameInput.Move.normalized;
+                StartCoroutine(Dash());
+            }
+        }
+
+        private IEnumerator Dash()
+        {
+            canDash = false;
+            isDashing = true;
+
+            originalGravity = rb.gravityScale;
+            rb.gravityScale = 0f;
+
+            rb.velocity = _lastDashDir * dashingPower;
+
+            yield return new WaitForSeconds(dashingTime);
+
+            rb.gravityScale = originalGravity;
+            isDashing = false;
+
+            yield return new WaitForSeconds(dashCooldown);
+            canDash = true;
+        }
+        #endregion
 
 #if UNITY_EDITOR
         private void OnValidate()
@@ -209,4 +258,5 @@ namespace TarodevController
         public event Action Jumped;
         public Vector2 FrameInput { get; }
     }
+  
 }
