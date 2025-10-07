@@ -131,7 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardPrefab: {fileID: 3523423648148918265, guid: ad033c6dc587caa4aa13592e1a2aa8b7, type: 3}
   firePoint: {fileID: 2924129449939004923}
-  attackCooldown: 0.7
+  attackCooldown: 1
 --- !u!1 &2969068311587289281
 GameObject:
   m_ObjectHideFlags: 0
