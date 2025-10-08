@@ -4,7 +4,7 @@ public class CardProjectile : MonoBehaviour
 {
     public float speed = 10f;
     public float maxDistance = 8f;
-    public int damage = 1;
+    public float damage = 1;
 
     private Vector2 startPos;
     private Vector2 direction;

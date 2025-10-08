@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EnemyTD : MonoBehaviour
 {
-    public int health = 3;
+    public float health = 3;
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         health -= amount;
         Debug.Log("Enemigo dañado. HP restante: " + health);
