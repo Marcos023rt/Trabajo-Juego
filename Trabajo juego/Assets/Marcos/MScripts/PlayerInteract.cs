@@ -1,40 +1,63 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerInteract : MonoBehaviour
 {
-    public float radioDeteccion = 1f;          
-    public LayerMask capaInteractuable;  // Capa que deberas asignar y poner a las diferentes cosas interactuables
+    public float radioDeteccion = 1.2f;
+    public LayerMask capaInteractuable;
     public KeyCode teclaInteraccion = KeyCode.E;
 
+    private List<interactive> objetosCercanos = new List<interactive>();
     private interactive objetoCercano;
 
     void Update()
     {
-        DetectarObjetoCercano();
+        DetectarObjetosCercanos();
 
         if (objetoCercano != null && Input.GetKeyDown(teclaInteraccion))
         {
-            objetoCercano.Interactuar(this.gameObject);
+            EjecutarAccion(objetoCercano);
         }
     }
 
-    void DetectarObjetoCercano()
+    void DetectarObjetosCercanos()
     {
-        // Detecta colliders cercanos en un radio
         Collider2D[] colisiones = Physics2D.OverlapCircleAll(transform.position, radioDeteccion, capaInteractuable);
 
-        if (colisiones.Length > 0)
+        objetosCercanos.Clear();
+
+        foreach (var col in colisiones)
         {
-            objetoCercano = colisiones[0].GetComponent<interactive>();
+            interactive inter = col.GetComponent<interactive>();
+            if (inter != null)
+            {
+                objetosCercanos.Add(inter);
+            }
         }
-        else
+
+        objetoCercano = objetosCercanos.Count > 0 ? objetosCercanos[0] : null;
+    }
+
+    void EjecutarAccion(interactive objeto)
+    {
+        switch (objeto)
         {
-            objetoCercano = null;
+            case Vendedor vendedor:
+                vendedor.Interactuar(this.gameObject);
+                break;
+
+            case CartaMundo cartaMundo:
+                cartaMundo.Interactuar(this.gameObject);
+                break;
+
+            default:
+                Debug.LogWarning("Objeto interactuable no reconocido");
+                break;
         }
     }
 
-    void OnDrawGizmosSelected() //esto es para poder ver el radio
+    void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, radioDeteccion);

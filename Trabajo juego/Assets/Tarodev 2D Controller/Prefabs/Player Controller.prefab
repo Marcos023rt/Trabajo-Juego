@@ -148,7 +148,7 @@ MonoBehaviour:
   radioDeteccion: 4
   capaInteractuable:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   teclaInteraccion: 101
 --- !u!1 &2969068311587289281
 GameObject:
