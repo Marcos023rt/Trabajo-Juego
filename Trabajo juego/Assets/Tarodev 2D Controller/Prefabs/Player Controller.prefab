@@ -52,7 +52,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 05e6a06c5af93134ab98ff12e2c27265, type: 2}
   dashingPower: 35
-  dashingTime: 0.2
+  dashingTime: 0.1
   dashCooldown: 0.6
 --- !u!50 &1544650614272011793
 Rigidbody2D:
