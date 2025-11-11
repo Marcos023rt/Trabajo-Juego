@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Card
+  - Coin
+  - Carta
   layers:
   - Default
   - TransparentFX
