@@ -132,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardPrefab: {fileID: 3523423648148918265, guid: ad033c6dc587caa4aa13592e1a2aa8b7, type: 3}
   firePoint: {fileID: 2924129449939004923}
-  attackCooldown: 1
+  attackCooldown: 0.5
 --- !u!114 &6069246160737903151
 MonoBehaviour:
   m_ObjectHideFlags: 0
