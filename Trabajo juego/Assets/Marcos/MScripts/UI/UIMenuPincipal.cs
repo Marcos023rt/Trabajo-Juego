@@ -14,6 +14,7 @@ public class UIMenuPincipal : MonoBehaviour
     public GameObject PanelControles;
     public GameObject CanvasBrillo;
     #endregion 
+
     #region VolumenData
     private float valorGuardado;
     public Slider SliderVolumen;
@@ -32,6 +33,7 @@ public class UIMenuPincipal : MonoBehaviour
         PanelControles.SetActive(false);
         DontDestroyOnLoad(CanvasBrillo);
         #endregion
+
         #region VolumenStart
         float volumenGuardado = PlayerPrefs.GetFloat("volumen", 0.5f);
         SliderVolumen.value = volumenGuardado;
@@ -78,6 +80,7 @@ public class UIMenuPincipal : MonoBehaviour
         PanelControles.SetActive(false);
     }
     #endregion
+
     #region Volumen
     public void cambiarValor(float valor)
     {
