@@ -1,29 +1,48 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using JetBrains.Annotations;
+using UnityEngine.SceneManagement;
 
 public class UIMenuPincipal : MonoBehaviour
 {
     //este scrip gestiona toda la UI del menu principal :)
     #region PanelData
+    [Header("Paneles")]
     public GameObject PanelOpciones;
     public GameObject PanelSalirDelJuego;
     public GameObject PanelControles;
     public GameObject CanvasBrillo;
-    #endregion 
+    #endregion
 
     #region VolumenData
-    private float valorGuardado;
+    [Header("Volumen")]
     public Slider SliderVolumen;
     public Toggle Tmute;
+    private float valorGuardado;
     #endregion
     #region BrilloData
-    private float brilloGuardado;
+    [Header("Brillo")]
     public Image panelBrillo;
+    private float brilloGuardado;
     public Slider brilloSlider;
+    #endregion
+    #region ResolucionData
+    [Header("Resolucion")]
+    public TMP_Dropdown resolucionesDropdown;
+    private int resolucion;
+    Resolution[] resoluciones;
+    #endregion
+    #region CalidadData
+    [Header("Calidad")]
+    public TMP_Dropdown DropCalidad;
+    private int calidad;
+    #endregion
+    #region PantallaCompletaData
+    [Header("Pantalla Completa")]
+    public Toggle pantallaCompleta;
     #endregion
     void Start()
     {
@@ -31,7 +50,6 @@ public class UIMenuPincipal : MonoBehaviour
         PanelOpciones.SetActive(false);
         PanelSalirDelJuego.SetActive(false);
         PanelControles.SetActive(false);
-        DontDestroyOnLoad(CanvasBrillo);
         #endregion
 
         #region VolumenStart
@@ -44,7 +62,16 @@ public class UIMenuPincipal : MonoBehaviour
         brilloSlider.value = PlayerPrefs.GetFloat("brillo", 0.0f);
         panelBrillo.color = new Color(panelBrillo.color.r, panelBrillo.color.r, panelBrillo.color.r, brilloGuardado);
         #endregion
-       
+        #region ResolucionesStart
+        RevisarResoluciones();
+        #endregion
+        #region CalidadStart
+        DropCalidad.ClearOptions();
+        DropCalidad.AddOptions(new System.Collections.Generic.List<string>(QualitySettings.names));
+        #endregion
+        #region PCompletaStart
+        pantallaCompleta.isOn = Screen.fullScreen;
+        #endregion
     }
     #region PanelSalida
     public void SalirJuego()
@@ -121,11 +148,52 @@ public class UIMenuPincipal : MonoBehaviour
         }
     #endregion
     #region Resolucion
+    public void RevisarResoluciones()
+    {
+        resoluciones = Screen.resolutions; //se buscan las resoluciones
+        resolucionesDropdown.ClearOptions();
+        List<string> opciones = new List<string>();
+        int resolucionActual = 0;
+        for (int i = 0; i < resoluciones.Length; i++) //buscamos y guardamos cada resolucion en la lista
+        {
+            string opcion = resoluciones[i].width + "x" + resoluciones[i].height;
+            opciones.Add(opcion); //aqui lo anadimos a la lista
+            if (Screen.fullScreen && resoluciones[i].width == Screen.currentResolution.width && resoluciones[i].height == Screen.currentResolution.height)
+            {
+                resolucionActual = 1;
+            }
+        }
+        resolucionesDropdown.AddOptions(opciones);
+        resolucionesDropdown.value = resolucionActual;
+        resolucionesDropdown.RefreshShownValue();
+        resolucionesDropdown.value = PlayerPrefs.GetInt("numeroResolucion", 0);
+    }
+    public void cambiarResolucion(int indiceResolucion)
+    {
+        PlayerPrefs.SetInt("numeroResolucion", resolucionesDropdown.value);
+        Resolution resolucion = resoluciones[indiceResolucion];
+        Screen.SetResolution(resolucion.width, resolucion.height, Screen.fullScreen);
+    }
 
     #endregion
     #region Calidad
-
+    public void ElegirCalidad(int indice)
+    {
+        QualitySettings.SetQualityLevel(indice, true);
+        PlayerPrefs.SetInt("numeroCalidad", indice);
+        PlayerPrefs.Save();
+    }
     #endregion
-
-    
+    #region PantallaCompleta
+    public void CambiarPantallaCompleta(bool estado)
+    {
+        Screen.fullScreen = estado;
+    }
+    #endregion
+    #region Cambiar Escena
+    public void CambiarEscenas(string nombre)
+    {
+        SceneManager.LoadScene(nombre);
+    }
+    #endregion
 }
