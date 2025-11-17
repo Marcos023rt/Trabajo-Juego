@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pngtree-vector-coins-icon-png-image_327576-removebg-preview_0: -4681564136101623403
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
