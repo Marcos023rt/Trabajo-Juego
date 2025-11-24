@@ -16,6 +16,7 @@ MonoBehaviour:
   descripcion: Lanza dos cartas en vez de una pero la velocidad de estas disminuye
   sprite: {fileID: 0}
   precio: 0
-  espaciosOcupa: 0
+  espaciosOcupa: 5
   NumeroCarta: 6
   CartaEncontrada: 0
+  CartaEquipada: 0
