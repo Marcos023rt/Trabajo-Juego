@@ -2,25 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZonaDescanso : MonoBehaviour
+public class ZonaDescanso : MonoBehaviour, interactive
 {
-
-    [Header("Cartas que vende")]
-    public PlantillaCartas[] cartasDisponibles; // Arrastra aquí tus ScriptableObjects
-
+    [Header("Cartas equipables")]
+    [Tooltip("Meter las diferentes cartas que se han creado del ScriptableObjet")] public PlantillaCartas[] cartasDisponibles;
+    public GameObject pinventario;
+    private void Start()
+    {
+        pinventario.SetActive(false);
+    }
     public void Interactuar(GameObject jugador)
     {
-        Debug.Log("Has hablado con el vendedor.");
-        MostrarCartas();
+        Debug.Log("Has abierto el inventario.");
+        MostrarInventario();
     }
-
-    void MostrarCartas()
+    void MostrarInventario()
     {
-        foreach (var carta in cartasDisponibles)
-        {
-
-        }
-
-        // Aquí más habra que abrir un panel de ui donde esten todas las cartas y sus huecos, asi se vera cuales tiene, tambien sus huecos equipados
+        pinventario.SetActive(true);
+        Time.timeScale = 0f;
+    }
+    public void SalirInverntario()
+    {
+        pinventario.SetActive(false);
+        Time.timeScale = 1f;
     }
 }

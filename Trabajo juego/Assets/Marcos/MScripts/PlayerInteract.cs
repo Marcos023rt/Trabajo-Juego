@@ -50,6 +50,9 @@ public class PlayerInteract : MonoBehaviour
             case CartaMundo cartaMundo:
                 cartaMundo.Interactuar(this.gameObject);
                 break;
+            case ZonaDescanso zonaDescanso:
+                zonaDescanso.Interactuar(this.gameObject);
+                break;
 
             default:
                 Debug.LogWarning("Objeto interactuable no reconocido");

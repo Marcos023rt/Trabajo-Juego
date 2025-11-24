@@ -17,6 +17,13 @@ public class Vendedor : MonoBehaviour, interactive
     private void Start()
     {
         pvendedor.SetActive(false);
+        for (int i=0; i<4; i++)
+        {
+            if (cartasDisponibles[i].CartaEncontrada == true)
+            {
+                BotonesComprar[i].interactable = false;
+            }
+        }
     }
     public void Interactuar(GameObject jugador)
     {
