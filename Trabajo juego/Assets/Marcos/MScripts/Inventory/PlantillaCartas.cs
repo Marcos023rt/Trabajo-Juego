@@ -11,6 +11,6 @@ public class PlantillaCartas : ScriptableObject
     [Tooltip("Cuanto cuesta comprar las cartas")]public int precio;
     [Tooltip("Los espacios que ocupa al ser equipado")]public int espaciosOcupa;
     [Tooltip("Poner el numero de carta al que corresponde")]public int NumeroCarta;
-    [HideInInspector] public bool CartaEncontrada;
+    /*[HideInInspector]*/ public bool CartaEncontrada;
    
 }

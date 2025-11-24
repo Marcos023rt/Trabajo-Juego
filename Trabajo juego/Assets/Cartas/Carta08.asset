@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de59b4d01077b4b419aef7113a51139c, type: 3}
   m_Name: Carta08
   m_EditorClassIdentifier: 
-  nombreC: 
-  descripcion: 
+  nombreC: El preciso
+  descripcion: Reduce el numero de golpes pra poder volver a curarse
   sprite: {fileID: 0}
   precio: 0
-  NumeroCarta: 0
-  espaciosOcupa: 0
+  espaciosOcupa: 4
+  NumeroCarta: 8
+  CartaEncontrada: 0

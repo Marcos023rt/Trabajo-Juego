@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de59b4d01077b4b419aef7113a51139c, type: 3}
   m_Name: Carta06
   m_EditorClassIdentifier: 
-  nombreC: 
-  descripcion: 
+  nombreC: La ballena
+  descripcion: Lanza dos cartas en vez de una pero la velocidad de estas disminuye
   sprite: {fileID: 0}
   precio: 0
-  NumeroCarta: 0
   espaciosOcupa: 0
+  NumeroCarta: 6
+  CartaEncontrada: 0

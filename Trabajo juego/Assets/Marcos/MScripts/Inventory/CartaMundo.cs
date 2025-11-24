@@ -9,5 +9,6 @@ public class CartaMundo : MonoBehaviour, interactive
         Debug.Log($"Recogiste la carta: {datosCarta.nombreC}");
         // Aquí podrías agregarla al inventario del jugador
         gameObject.SetActive(false); // Desaparece del mundo al recogerla
+        datosCarta.CartaEncontrada = true;
     }
 }
