@@ -23,7 +23,7 @@ public class ZonaDescanso : MonoBehaviour, interactive
 
     public Image[] ArteCartas = new Image[10];
 
-    public int auxiliar = 0;
+    [HideInInspector]public int auxiliar = 0;
     public SpriteRenderer[] HuecosOcupados = new SpriteRenderer[10];
     public Button[] BotonesEquipar = new Button[10];
     
@@ -91,7 +91,7 @@ public class ZonaDescanso : MonoBehaviour, interactive
     }
     public void HuecosOcuparse() //activa segun el numero de hueco que se han equipado
     {
-        
+        auxiliar = 0;
         for(int i=0; i<cartasDisponibles.Length; i++)
         {
             if (cartasDisponibles[i].CartaEquipada == true)

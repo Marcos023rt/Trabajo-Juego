@@ -9,7 +9,22 @@ EditorBuildSettings:
     path: Assets/Final/MenuPrincipal.unity
     guid: bd54bbae9c7e9d64fafbda5f26822453
   - enabled: 1
-    path: Assets/Final/Nivel0.unity
+    path: Assets/Final/Nivel 00.unity
     guid: d85b12623b3bb6348acf5b65d5924cf5
+  - enabled: 1
+    path: Assets/Final/Nivel 01.unity
+    guid: 9dfbc32437eb1e940865f9b6c6e0f47d
+  - enabled: 1
+    path: Assets/Final/Nivel 02.unity
+    guid: dbaa51036c089bf448202abdd641413f
+  - enabled: 1
+    path: Assets/Final/Nivel 03.unity
+    guid: 828d3850022dc224cbf0853a9240443f
+  - enabled: 1
+    path: Assets/Final/Nivel 04.unity
+    guid: c6ef7ee405d99374bb58d50d7e619558
+  - enabled: 1
+    path: Assets/Final/BossFinal.unity
+    guid: 6da726a3a7246c848b8bb455e2dd13fa
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

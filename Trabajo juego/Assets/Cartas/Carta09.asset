@@ -19,4 +19,4 @@ MonoBehaviour:
   espaciosOcupa: 6
   NumeroCarta: 9
   CartaEncontrada: 0
-  CartaEquipada: 0
+  CartaEquipada: 1
