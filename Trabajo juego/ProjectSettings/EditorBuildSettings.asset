@@ -26,5 +26,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Final/BossFinal.unity
     guid: 6da726a3a7246c848b8bb455e2dd13fa
+  - enabled: 1
+    path: Assets/Marcos/MEscenas pruebas/MP01.unity
+    guid: 80221a3c52651054fb5209091130929e
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
