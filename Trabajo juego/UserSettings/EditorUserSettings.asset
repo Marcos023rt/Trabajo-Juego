@@ -6,6 +6,7 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedSceneGuid-0:
+<<<<<<< Updated upstream
       value: 5b520d0503545b0d0c0c0a2715770748154f4d2c7d7d7e627a7d4a35b4e1646a
       flags: 0
     RecentlyUsedSceneGuid-1:
@@ -19,21 +20,47 @@ EditorUserSettings:
       flags: 0
     RecentlyUsedSceneGuid-4:
       value: 0709010454075f095e0c5f2012750c444e161b2c792a7065297c4461b6e3326d
+=======
+      value: 07535507500459085b0d5c7a49215944424f4a7a7e292434297f4962b6b1673e
+      flags: 0
+    RecentlyUsedSceneGuid-1:
+      value: 5b030c02560d5c0b5d5c5e2613710d4415151e7a747d7531747b4963b6b4673e
+      flags: 0
+    RecentlyUsedSceneGuid-2:
+      value: 0007510052500c0f5d5b087b4970084414154d72287d76347a2c4b62bbb56160
+      flags: 0
+    RecentlyUsedSceneGuid-3:
+      value: 55555551570308080c595e76462007444e1540282e7c7365287b1937b3b33239
+>>>>>>> Stashed changes
+      flags: 0
+    RecentlyUsedSceneGuid-4:
+      value: 015501520757085e540d5b274927094410161e28282973367f7f4561b0b4616b
       flags: 0
     RecentlyUsedSceneGuid-5:
-      value: 015501520757085e540d5b274927094410161e28282973367f7f4561b0b4616b
+      value: 5a55520406065b0f5e59092041260644464f4e7f2a7124662e7f1863e4b4633c
       flags: 0
     RecentlyUsedSceneGuid-6:
       value: 06520d5151500d5e095e082647700d4445154f7d7d2b25322e2c4430bbb23161
       flags: 0
     RecentlyUsedSceneGuid-7:
+<<<<<<< Updated upstream
       value: 5b01065454545a58585c5a7741730a4410154d787c7176697c784e63bbb26d3d
+=======
+      value: 06520d5151500d5e095e082647700d4445154f7d7d2b25322e2c4430bbb23161
+>>>>>>> Stashed changes
       flags: 0
     RecentlyUsedSceneGuid-8:
       value: 5409055e06565e095a5d5f7b44275e44404e1d7f287d72657d7c1937b5e5363e
       flags: 0
     RecentlyUsedSceneGuid-9:
+<<<<<<< Updated upstream
       value: 5357065357005d5e59585f744021094417151e2c782e7f312f2b1c32bbb7676b
+=======
+      value: 0709010454075f095e0c5f2012750c444e161b2c792a7065297c4461b6e3326d
+      flags: 0
+    lightmappingBakingProfile:
+      value: 51
+>>>>>>> Stashed changes
       flags: 0
     vcSharedLogLevel:
       value: 0d5e400f0650
