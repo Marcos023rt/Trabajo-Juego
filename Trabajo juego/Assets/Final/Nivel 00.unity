@@ -1325,7 +1325,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1242126465}
+      - m_Target: {fileID: 603098876}
         m_TargetAssemblyTypeName: UIJuego, Assembly-CSharp
         m_MethodName: comprobar
         m_Mode: 1
@@ -1337,7 +1337,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1242126465}
+      - m_Target: {fileID: 603098876}
         m_TargetAssemblyTypeName: UIJuego, Assembly-CSharp
         m_MethodName: valorSlider
         m_Mode: 1
@@ -1719,7 +1719,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1242126465}
+      - m_Target: {fileID: 603098876}
         m_TargetAssemblyTypeName: UIJuego, Assembly-CSharp
         m_MethodName: SalirJuego
         m_Mode: 1
@@ -2018,7 +2018,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1242126465}
+      - m_Target: {fileID: 603098876}
         m_TargetAssemblyTypeName: UIJuego, Assembly-CSharp
         m_MethodName: ElegirCalidad
         m_Mode: 0
@@ -2899,7 +2899,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1242126465}
+      - m_Target: {fileID: 603098876}
         m_TargetAssemblyTypeName: UIJuego, Assembly-CSharp
         m_MethodName: SiSalir
         m_Mode: 5
@@ -3705,7 +3705,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1544650614272011795, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.34
+      value: -1.3400002
       objectReference: {fileID: 0}
     - target: {fileID: 1544650614272011795, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3717,15 +3717,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1544650614272011795, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1544650614272011795, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1544650614272011795, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1544650614272011795, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3742,10 +3742,6 @@ PrefabInstance:
     - target: {fileID: 1544650614272011804, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
       propertyPath: m_Name
       value: Player Controller
-      objectReference: {fileID: 0}
-    - target: {fileID: 1544650614272011804, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4387,7 +4383,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1242126465}
+      - m_Target: {fileID: 603098876}
         m_TargetAssemblyTypeName: UIJuego, Assembly-CSharp
         m_MethodName: Continuar
         m_Mode: 1
@@ -4490,6 +4486,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4287162379610940451, guid: 6e8c418a1b8a5054aae6fa21b240ca29, type: 3}
+      propertyPath: Jugador
+      value: 
+      objectReference: {fileID: 1597764400}
     - target: {fileID: 8470559945544302389, guid: 6e8c418a1b8a5054aae6fa21b240ca29, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
@@ -6339,6 +6339,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 603098875}
+  - component: {fileID: 603098876}
   - component: {fileID: 603098874}
   - component: {fileID: 603098873}
   - component: {fileID: 603098872}
@@ -6433,6 +6434,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &603098876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603098871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f7f0eaea1d0f447932abc17c025847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PanelOpciones: {fileID: 331205814}
+  PanelSalirDelJuego: {fileID: 1550871220}
+  BotonesGenerales: {fileID: 1654232080}
+  sliderVolumen: {fileID: 99056878}
+  Tmute: {fileID: 1779404378}
+  panelBrillo: {fileID: 2108034255}
+  brilloSlider: {fileID: 1816760019}
+  resolucionesDropdown: {fileID: 917823997}
+  DropCalidad: {fileID: 179976513}
+  pantallaCompleta: {fileID: 1960813771}
 --- !u!1 &607044659
 GameObject:
   m_ObjectHideFlags: 0
@@ -7559,7 +7582,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1242126465}
+      - m_Target: {fileID: 603098876}
         m_TargetAssemblyTypeName: UIJuego, Assembly-CSharp
         m_MethodName: Opciones
         m_Mode: 1
@@ -7894,7 +7917,7 @@ Transform:
   m_GameObject: {fileID: 707976654}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 70.4819, y: 32.343, z: -7.987332}
+  m_LocalPosition: {x: 70.74, y: 32.343, z: -7.987332}
   m_LocalScale: {x: 48.389297, y: 3.0828023, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9092,7 +9115,7 @@ Transform:
   m_GameObject: {fileID: 805718035}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 72.5267, y: 25.2427, z: -7.987332}
+  m_LocalPosition: {x: 72.72, y: 25.2427, z: -7.987332}
   m_LocalScale: {x: 52.465954, y: 11.472852, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9246,6 +9269,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4287162379610940451, guid: 6e8c418a1b8a5054aae6fa21b240ca29, type: 3}
+      propertyPath: Jugador
+      value: 
+      objectReference: {fileID: 1597764400}
     - target: {fileID: 8470559945544302389, guid: 6e8c418a1b8a5054aae6fa21b240ca29, type: 3}
       propertyPath: m_Name
       value: Enemy (5)
@@ -10167,7 +10194,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1242126465}
+      - m_Target: {fileID: 603098876}
         m_TargetAssemblyTypeName: UIJuego, Assembly-CSharp
         m_MethodName: cambiarResolucion
         m_Mode: 0
@@ -10331,7 +10358,7 @@ Transform:
   m_GameObject: {fileID: 941368791}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 68.4778, y: 35.13, z: -7.987332}
+  m_LocalPosition: {x: 68.8, y: 35.13, z: -7.987332}
   m_LocalScale: {x: 44.401108, y: 2.72728, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14095,7 +14122,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1242126464
 Transform:
   m_ObjectHideFlags: 0
@@ -15394,6 +15421,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4287162379610940451, guid: 6e8c418a1b8a5054aae6fa21b240ca29, type: 3}
+      propertyPath: Jugador
+      value: 
+      objectReference: {fileID: 1597764400}
     - target: {fileID: 8470559945544302389, guid: 6e8c418a1b8a5054aae6fa21b240ca29, type: 3}
       propertyPath: m_Name
       value: Enemy (2)
@@ -16199,6 +16230,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4287162379610940451, guid: 6e8c418a1b8a5054aae6fa21b240ca29, type: 3}
+      propertyPath: Jugador
+      value: 
+      objectReference: {fileID: 1597764400}
     - target: {fileID: 8470559945544302389, guid: 6e8c418a1b8a5054aae6fa21b240ca29, type: 3}
       propertyPath: m_Name
       value: Enemy (4)
@@ -17920,6 +17955,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4287162379610940451, guid: 6e8c418a1b8a5054aae6fa21b240ca29, type: 3}
+      propertyPath: Jugador
+      value: 
+      objectReference: {fileID: 1597764400}
     - target: {fileID: 8470559945544302389, guid: 6e8c418a1b8a5054aae6fa21b240ca29, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -17929,6 +17968,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e8c418a1b8a5054aae6fa21b240ca29, type: 3}
+--- !u!1 &1597764400 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1544650614272011804, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
+  m_PrefabInstance: {fileID: 355892519}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1603861812
 GameObject:
   m_ObjectHideFlags: 0
@@ -19115,7 +19159,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1242126465}
+      - m_Target: {fileID: 603098876}
         m_TargetAssemblyTypeName: UIJuego, Assembly-CSharp
         m_MethodName: NoSalir
         m_Mode: 1
@@ -20681,7 +20725,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1242126465}
+      - m_Target: {fileID: 603098876}
         m_TargetAssemblyTypeName: UIJuego, Assembly-CSharp
         m_MethodName: valorSlider
         m_Mode: 1
@@ -21178,7 +21222,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1242126465}
+      - m_Target: {fileID: 603098876}
         m_TargetAssemblyTypeName: UIJuego, Assembly-CSharp
         m_MethodName: CambiarBrillo
         m_Mode: 1
@@ -21934,6 +21978,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4287162379610940451, guid: 6e8c418a1b8a5054aae6fa21b240ca29, type: 3}
+      propertyPath: Jugador
+      value: 
+      objectReference: {fileID: 1597764400}
     - target: {fileID: 8470559945544302389, guid: 6e8c418a1b8a5054aae6fa21b240ca29, type: 3}
       propertyPath: m_Name
       value: Enemy (3)
@@ -22457,6 +22505,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4287162379610940451, guid: 6e8c418a1b8a5054aae6fa21b240ca29, type: 3}
+      propertyPath: Jugador
+      value: 
+      objectReference: {fileID: 1597764400}
     - target: {fileID: 8470559945544302389, guid: 6e8c418a1b8a5054aae6fa21b240ca29, type: 3}
       propertyPath: m_Name
       value: Enemy (6)
@@ -22820,7 +22872,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1242126465}
+      - m_Target: {fileID: 603098876}
         m_TargetAssemblyTypeName: UIJuego, Assembly-CSharp
         m_MethodName: CambiarPantallaCompleta
         m_Mode: 0
@@ -24878,7 +24930,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1242126465}
+      - m_Target: {fileID: 603098876}
         m_TargetAssemblyTypeName: UIJuego, Assembly-CSharp
         m_MethodName: SalirOpciones
         m_Mode: 1

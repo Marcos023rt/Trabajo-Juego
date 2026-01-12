@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1544650614272011794}
   - component: {fileID: -3078415514110553700}
   - component: {fileID: 6069246160737903151}
+  - component: {fileID: 6562905328789659622}
   m_Layer: 0
   m_Name: Player Controller
   m_TagString: Player
@@ -150,6 +151,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   teclaInteraccion: 101
+--- !u!114 &6562905328789659622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544650614272011804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 037ebef9defd7634f8731daff1bcc4ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  datosJugador: {fileID: 11400000, guid: 54c7a74ae1a78b14ba34fd9792f7fa8b, type: 2}
+  tiempoNecesario: 1
+  cura: 2
+  numeroDeGolpesParaCurarse: 0
 --- !u!1 &2969068311587289281
 GameObject:
   m_ObjectHideFlags: 0
@@ -29787,7 +29804,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 1
+  m_Time: 0.5
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -29797,28 +29814,28 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.09543261
-        inSlope: -0.10980224
-        outSlope: -0.10980224
+        value: 0.12666321
+        inSlope: 0.18082348
+        outSlope: 0.18082348
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.2027972
+        outWeight: 0.14749262
       - serializedVersion: 3
         time: 1
         value: 0
-        inSlope: -0.18601623
-        outSlope: -0.18601623
+        inSlope: 0.030958895
+        outSlope: 0.030958895
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.17482519
+        inWeight: 0.2153393
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.9150943, g: 0.7169078, b: 0.38416696, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -29843,7 +29860,7 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: -1
+      m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 5
@@ -29852,12 +29869,12 @@ TrailRenderer:
     textureMode: 0
     textureScale: {x: 1, y: 1}
     shadowBias: 0.5
-    generateLightingData: 0
-  m_MinVertexDistance: 0.1
+    generateLightingData: 1
+  m_MinVertexDistance: 0.05
   m_MaskInteraction: 0
   m_Autodestruct: 0
   m_Emitting: 1
-  m_ApplyActiveColorSpace: 0
+  m_ApplyActiveColorSpace: 1
 --- !u!1 &2969068313322230365
 GameObject:
   m_ObjectHideFlags: 0

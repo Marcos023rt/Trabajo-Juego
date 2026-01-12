@@ -44,6 +44,7 @@ public class UIMenuPincipal : MonoBehaviour
     #region PantallaCompletaData
     [Header("Pantalla Completa")]
     public Toggle pantallaCompleta;
+    private int _fullscreenInt;
     #endregion
     void Start()
     {
@@ -82,13 +83,46 @@ public class UIMenuPincipal : MonoBehaviour
         #region CalidadStart
         DropCalidad.ClearOptions();
         DropCalidad.AddOptions(new System.Collections.Generic.List<string>(QualitySettings.names));
-        #endregion
-        #region PCompletaStart
-        pantallaCompleta.isOn = Screen.fullScreen;
-        #endregion
 
+        if (PlayerPrefs.HasKey("numeroCalidad"))
+        {
+            calidad = PlayerPrefs.GetInt("numeroCalidad");
+            QualitySettings.SetQualityLevel(calidad);
+            DropCalidad.value = calidad;
+        }
+        else
+        {
+            PlayerPrefs.SetInt("numeroCalidad", 2); // valor por defecto
+            calidad = PlayerPrefs.GetInt("numeroCalidad");
+            QualitySettings.SetQualityLevel(calidad);
+            DropCalidad.value = calidad;
+        }
+        #endregion
+        #region PCompletaStart 
+        //Int 0= falase, 1= true.
+        if (PlayerPrefs.HasKey("fullScreen"))
+        {
+            _fullscreenInt = PlayerPrefs.GetInt("fullScreen");
+            if (_fullscreenInt == 1)
+            {
+                Screen.fullScreen = true;
+                pantallaCompleta.isOn = true;
+            }
+            else
+            {
+                Screen.fullScreen = false;
+                pantallaCompleta.isOn = false;
+            }
+        }
+        else
+        {
+            PlayerPrefs.SetInt("fullScreen", 1);
+            _fullscreenInt  = PlayerPrefs.GetInt("fullScreen");
+            Screen.fullScreen = true;
+            pantallaCompleta.isOn = true;
+        }
+        #endregion
     }
-
     #region PanelSalida
     public void SalirJuego()
     {
@@ -123,12 +157,10 @@ public class UIMenuPincipal : MonoBehaviour
         PanelControles.SetActive(false);
     }
     #endregion
-
     #region Volumen
     public void cambiarValor(float valor)
     {
         PlayerPrefs.SetFloat("volumen", valor); // le damos un valor a la variable unica para que cuando vuelva a entrar ya tenga el nuevo valor
-        Debug.Log(valor);
     }
     public void comprobar()
     {
@@ -204,6 +236,16 @@ public class UIMenuPincipal : MonoBehaviour
     public void CambiarPantallaCompleta(bool estado)
     {
         Screen.fullScreen = estado;
+        if (estado == true)
+        {
+            _fullscreenInt = 1; //si es true me da este valor
+            PlayerPrefs.SetInt("fullScreen", _fullscreenInt);
+        }
+        else
+        {
+            _fullscreenInt = 0;// si es false me da ete valor
+            PlayerPrefs.SetInt("fullScreen", _fullscreenInt);
+        }
     }
     #endregion
     #region Cambiar Escena

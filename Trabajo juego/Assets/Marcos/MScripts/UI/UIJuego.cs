@@ -1,10 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using JetBrains.Annotations;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class UIJuego : MonoBehaviour
 {
@@ -41,20 +42,35 @@ public class UIJuego : MonoBehaviour
     #region PantallaCompletaData
     [Header("Pantalla Completa")]
     public Toggle pantallaCompleta;
+    private int _fullscreenInt;
     #endregion
     #region Singleton
-    public static UIJuego InstanciaUI { get; private set; }
+    public static UIJuego Instance {get; private set;}
     private void Awake()
     {
-        if (InstanciaUI != null && InstanciaUI != this)
+        if (Instance != null && Instance != this)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
         else
         {
-            InstanciaUI = this;
-            DontDestroyOnLoad(this);
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "MenuPrincipal") // 👈 nombre exacto
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+            Destroy(gameObject);
+        }
+    }
+    private void OnDestroy()
+    {
+        if (Instance == this)
+            Instance = null;
     }
     #endregion
     void Start()
@@ -88,9 +104,44 @@ public class UIJuego : MonoBehaviour
         #region CalidadStart
         DropCalidad.ClearOptions();
         DropCalidad.AddOptions(new System.Collections.Generic.List<string>(QualitySettings.names));
+
+        if (PlayerPrefs.HasKey("numeroCalidad"))
+        {
+            calidad = PlayerPrefs.GetInt("numeroCalidad");
+            QualitySettings.SetQualityLevel(calidad);
+            DropCalidad.value = calidad;
+        }
+        else
+        {
+            PlayerPrefs.SetInt("numeroCalidad",2); // valor por defecto
+            calidad = PlayerPrefs.GetInt("numeroCalidad"); 
+            QualitySettings.SetQualityLevel(calidad);
+            DropCalidad.value = calidad;
+        }
         #endregion
         #region PCompletaStart
-        pantallaCompleta.isOn = Screen.fullScreen;
+        //Int 0= falase, 1= true.
+        if (PlayerPrefs.HasKey("fullScreen"))
+        {
+            _fullscreenInt = PlayerPrefs.GetInt("fullScreen");
+            if (_fullscreenInt == 1)
+            {
+                Screen.fullScreen = true;
+                pantallaCompleta.isOn = true;
+            }
+            else
+            {
+                Screen.fullScreen = false;
+                pantallaCompleta.isOn = false;
+            }
+        }
+        else
+        {
+            PlayerPrefs.SetInt("fullScreen", 1);
+            _fullscreenInt = PlayerPrefs.GetInt("fullScreen");
+            Screen.fullScreen = true;
+            pantallaCompleta.isOn = true;
+        }
         #endregion
     }
     #region Update
@@ -223,6 +274,16 @@ public class UIJuego : MonoBehaviour
     public void CambiarPantallaCompleta(bool estado)
     {
         Screen.fullScreen = estado;
+        if (estado == true)
+        {
+            _fullscreenInt = 1; //si es true me da este valor
+            PlayerPrefs.SetInt("fullScreen", _fullscreenInt);
+        }
+        else
+        {
+            _fullscreenInt = 0;// si es false me da ete valor
+            PlayerPrefs.SetInt("fullScreen", _fullscreenInt);
+        }
     }
     #endregion
     #region Cambiar Escena

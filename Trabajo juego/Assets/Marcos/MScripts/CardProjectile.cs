@@ -2,12 +2,16 @@ using UnityEngine;
 
 public class CardProjectile : MonoBehaviour
 {
+    public ScriptableJugador jugador;
     public float speed = 10f;
     public float maxDistance = 8f;
-    public float damage = 1;
-
+    public int damage = 1;
+   
     private Vector2 startPos;
     private Vector2 direction;
+
+   
+    public int numeroDeGolpesParaCurarse;
 
     void Start()
     {
@@ -40,6 +44,9 @@ public class CardProjectile : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
+                jugador.contadorGolpes += 1;
+                Debug.Log(jugador.contadorGolpes);
+               
             }
 
             Destroy(gameObject); // Desaparece al golpear
@@ -48,5 +55,6 @@ public class CardProjectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
 }

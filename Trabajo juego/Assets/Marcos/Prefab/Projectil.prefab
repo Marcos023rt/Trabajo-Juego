@@ -178,6 +178,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ee17fd0bf0a72c4289392d4fd17c63f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jugador: {fileID: 11400000, guid: 54c7a74ae1a78b14ba34fd9792f7fa8b, type: 2}
   speed: 35
   maxDistance: 10
   damage: 1
+  numeroDeGolpesParaCurarse: 0

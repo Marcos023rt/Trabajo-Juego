@@ -9,4 +9,7 @@ public class ScriptableJugador : ScriptableObject
     public int Vida;
     public int EspaciosEquipables;
     public int Dinero;
+
+    public bool curarse;
+    public int contadorGolpes;
 }
