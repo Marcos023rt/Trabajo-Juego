@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using JetBrains.Annotations;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class UIMenuPincipal : MonoBehaviour
 {
@@ -19,9 +20,9 @@ public class UIMenuPincipal : MonoBehaviour
 
     #region VolumenData
     [Header("Volumen")]
-    public Slider SliderVolumen;
+    public Slider sliderVolumen;
     public Toggle Tmute;
-    private float valorGuardado;
+    private float _valorGuardado;
     #endregion
     #region BrilloData
     [Header("Brillo")]
@@ -46,20 +47,33 @@ public class UIMenuPincipal : MonoBehaviour
     #endregion
     void Start()
     {
+        LoadSettings();
+    }
+    private void LoadSettings()
+    {
         #region PanelesStart
         PanelOpciones.SetActive(false);
         PanelSalirDelJuego.SetActive(false);
         PanelControles.SetActive(false);
         #endregion
-
         #region VolumenStart
-        float volumenGuardado = PlayerPrefs.GetFloat("volumen", 0.5f);
-        SliderVolumen.value = volumenGuardado;
-        AudioListener.volume = volumenGuardado;
-        Tmute.isOn = (volumenGuardado == 0);
+        if (PlayerPrefs.HasKey("volumen"))
+        {
+            float volumenGuardado = PlayerPrefs.GetFloat("volumen");
+            sliderVolumen.value = volumenGuardado;
+            AudioListener.volume = volumenGuardado;
+            Tmute.isOn = (volumenGuardado == 0);
+        }
+        else
+        { 
+
+            PlayerPrefs.SetFloat("volumen", 0.5f);
+            sliderVolumen.value = PlayerPrefs.GetFloat("volumen");
+        }
+
         #endregion
         #region BrilloStart
-        brilloSlider.value = PlayerPrefs.GetFloat("brillo", 0.0f);
+        brilloSlider.value = 0.0f;
         panelBrillo.color = new Color(panelBrillo.color.r, panelBrillo.color.r, panelBrillo.color.r, brilloGuardado);
         #endregion
         #region ResolucionesStart
@@ -72,7 +86,9 @@ public class UIMenuPincipal : MonoBehaviour
         #region PCompletaStart
         pantallaCompleta.isOn = Screen.fullScreen;
         #endregion
+
     }
+
     #region PanelSalida
     public void SalirJuego()
     {
@@ -111,12 +127,12 @@ public class UIMenuPincipal : MonoBehaviour
     #region Volumen
     public void cambiarValor(float valor)
     {
-        valorGuardado = valor;
         PlayerPrefs.SetFloat("volumen", valor); // le damos un valor a la variable unica para que cuando vuelva a entrar ya tenga el nuevo valor
+        Debug.Log(valor);
     }
     public void comprobar()
     {
-        if (SliderVolumen.value == 0)
+        if (sliderVolumen.value == 0)
         {
             Tmute.isOn = true;
         }
@@ -127,14 +143,14 @@ public class UIMenuPincipal : MonoBehaviour
         if (Tmute.isOn)
         {
             AudioListener.volume = 0;
-            SliderVolumen.value = 0;
+            sliderVolumen.value = 0;
             //mute.isOn = true;
         }
         else
         {
-            AudioListener.volume = SliderVolumen.value;
-            valorGuardado = SliderVolumen.value; //aqui guardamos el nuevo valor que haya tocado el usuario en el slider
-            cambiarValor(valorGuardado); //llamamos a la funcion que cambia el valor de el PlayerPrefs
+            AudioListener.volume = sliderVolumen.value;
+            _valorGuardado = sliderVolumen.value; //aqui guardamos el nuevo valor que haya tocado el usuario en el slider
+            cambiarValor(_valorGuardado); //llamamos a la funcion que cambia el valor de el PlayerPrefs
             Tmute.isOn = false;
         }
     }
