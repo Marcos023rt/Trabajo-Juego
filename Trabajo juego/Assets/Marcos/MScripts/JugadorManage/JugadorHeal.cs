@@ -9,7 +9,7 @@ public class JugadorHeal : MonoBehaviour
     float tiempoPulsado;
     public int cura = 2;
 
-    public int numeroDeGolpesParaCurarse = 3;
+    public int numeroDeGolpesParaCurarse;
     
     // Update is called once per frame
     void Update()
@@ -37,7 +37,7 @@ public class JugadorHeal : MonoBehaviour
         if (Input.GetKey(KeyCode.E))
         {
             tiempoPulsado += Time.deltaTime;
-            Debug.Log(tiempoPulsado);
+            //Debug.Log(tiempoPulsado);
             if (tiempoPulsado >= tiempoNecesario)
             {      
                 Debug.Log("El jugador se ha curado");

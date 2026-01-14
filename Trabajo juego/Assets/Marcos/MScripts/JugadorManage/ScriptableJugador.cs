@@ -10,6 +10,6 @@ public class ScriptableJugador : ScriptableObject
     public int EspaciosEquipables;
     public int Dinero;
 
-    public bool curarse;
+    public bool curarse = false;
     public int contadorGolpes;
 }
