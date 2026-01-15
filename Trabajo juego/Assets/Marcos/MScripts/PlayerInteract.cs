@@ -53,6 +53,9 @@ public class PlayerInteract : MonoBehaviour
             case ZonaDescanso zonaDescanso:
                 zonaDescanso.Interactuar(this.gameObject);
                 break;
+            case DesbloquearDash desbloquearDash:
+                desbloquearDash.Interactuar(this.gameObject);
+                break;
 
             default:
                 Debug.LogWarning("Objeto interactuable no reconocido");

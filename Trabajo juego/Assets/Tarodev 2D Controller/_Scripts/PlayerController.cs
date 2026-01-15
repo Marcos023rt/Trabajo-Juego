@@ -16,6 +16,7 @@ namespace TarodevController
     public class PlayerController : MonoBehaviour, IPlayerController
     {
         [SerializeField] private ScriptableStats _stats;
+        public ScriptableJugador datosJugador;
 
         #region Dash
         [Header("Dash Settings")]
@@ -208,12 +209,15 @@ namespace TarodevController
         #region Dash
         private void HandleDashInput()
         {
-            if (Input.GetKeyDown(KeyCode.Space) && canDash && !isDashing)
+            if (datosJugador.dashDesbloqueado == true)
             {
-                if (_frameInput.Move != Vector2.zero)
-                    _lastDashDir = _frameInput.Move.normalized;
-                StartCoroutine(Dash());
-            }
+                if (Input.GetKeyDown(KeyCode.Space) && canDash && !isDashing)
+                {
+                    if (_frameInput.Move != Vector2.zero)
+                        _lastDashDir = _frameInput.Move.normalized;
+                    StartCoroutine(Dash());
+                }
+            }  
         }
 
         private IEnumerator Dash()

@@ -23,10 +23,10 @@ public class EnemyTD : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            datosGeneralesJugador.Vida -= danio;
-            Debug.Log(datosGeneralesJugador.Vida);
+            datosGeneralesJugador.VidaActual -= danio;
+            Debug.Log(datosGeneralesJugador.VidaActual);
         }
-        if (datosGeneralesJugador.Vida <= 0)
+        if (datosGeneralesJugador.VidaActual <= 0)
         {
           Jugador.SetActive(false);
         }

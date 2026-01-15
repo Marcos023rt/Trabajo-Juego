@@ -6,10 +6,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DatosJugador", menuName = "Jugador")]
 public class ScriptableJugador : ScriptableObject
 {
-    public int Vida;
+    public int VidaActual;
+    public int vidaMaxima = 6;
+        
     public int EspaciosEquipables;
     public int Dinero;
 
     public bool curarse = false;
     public int contadorGolpes;
+
+    public bool dashDesbloqueado = false;
 }

@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 11400000, guid: 05e6a06c5af93134ab98ff12e2c27265, type: 2}
+  datosJugador: {fileID: 11400000, guid: 54c7a74ae1a78b14ba34fd9792f7fa8b, type: 2}
   dashingPower: 35
   dashingTime: 0.2
   dashCooldown: 0.2
@@ -166,7 +167,7 @@ MonoBehaviour:
   datosJugador: {fileID: 11400000, guid: 54c7a74ae1a78b14ba34fd9792f7fa8b, type: 2}
   tiempoNecesario: 1
   cura: 2
-  numeroDeGolpesParaCurarse: 0
+  numeroDeGolpesParaCurarse: 3
 --- !u!1 &2969068311587289281
 GameObject:
   m_ObjectHideFlags: 0

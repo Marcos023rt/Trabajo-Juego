@@ -7,7 +7,7 @@ public class JugadorHeal : MonoBehaviour
     public ScriptableJugador datosJugador;
     public float tiempoNecesario;
     float tiempoPulsado;
-    public int cura = 2;
+    public int cura;
 
     public int numeroDeGolpesParaCurarse;
     
@@ -33,17 +33,23 @@ public class JugadorHeal : MonoBehaviour
     }
     public void Curarse()
     {
-       
-        if (Input.GetKey(KeyCode.E))
+        if (datosJugador.VidaActual >= datosJugador.vidaMaxima)
         {
-            tiempoPulsado += Time.deltaTime;
-            //Debug.Log(tiempoPulsado);
-            if (tiempoPulsado >= tiempoNecesario)
-            {      
-                Debug.Log("El jugador se ha curado");
-                datosJugador.Vida += cura;
-                datosJugador.curarse = false;
+            Debug.Log("Su vida es la maxima");
+        }
+        else
+        {
+            if (Input.GetKey(KeyCode.W))
+            {
+                tiempoPulsado += Time.deltaTime;
+                //Debug.Log(tiempoPulsado);
+                if (tiempoPulsado >= tiempoNecesario)
+                {
+                    Debug.Log("El jugador se ha curado");
+                    datosJugador.VidaActual += cura;
+                    datosJugador.curarse = false;
+                }
             }
-        }  
+        }
     }
 }

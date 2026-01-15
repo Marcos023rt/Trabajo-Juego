@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1123677f6b5b4fb4298d61afbe462032, type: 3}
   m_Name: DatosJugador
   m_EditorClassIdentifier: 
-  Vida: 11
+  VidaActual: 6
+  vidaMaxima: 6
   EspaciosEquipables: 6
   Dinero: 0
-  curarse: 0
+  curarse: 1
   contadorGolpes: 0
+  dashDesbloqueado: 0
