@@ -11,6 +11,8 @@ public class ZonaDescanso : MonoBehaviour, interactive
     //falta hacer que los sprites de los que estan equipados se actualicen en el start (sos)
     #region Data
     [Header("Cartas equipables")]
+    public ScriptableJugador datosJugador;
+    [Header("Cartas equipables")]
     [Tooltip("Meter las diferentes cartas que se han creado del ScriptableObjet")] public PlantillaCartas[] cartasDisponibles;
 
     [Header("Inventario")]
@@ -46,6 +48,16 @@ public class ZonaDescanso : MonoBehaviour, interactive
         }
         HuecosOcuparse();
     }
+    public void Update()
+    {
+     for(int i=0; i<cartasDisponibles.Length; i++)
+        {
+            if (cartasDisponibles[i].CartaEncontrada== false)
+            {
+
+            }
+        }   
+    }
     #region Logica Abrir y cerrar el panel
     public void Interactuar(GameObject jugador)
     {
@@ -79,6 +91,10 @@ public class ZonaDescanso : MonoBehaviour, interactive
     }
     public void EquiparCarta(int numeroCarta) //al darle al boton pone esta carta en true equipada 
     {
+        if ( cartasDisponibles[numeroCarta].espaciosOcupa+datosJugador.espaciosOcupados< datosJugador.EspaciosEquipables)
+        {
+            
+        }
         cartasDisponibles[numeroCarta].CartaEquipada = true;
         HuecosArte[contadorHuecos].sprite = ArteCartas[numeroCarta].sprite;
         contadorHuecos++;

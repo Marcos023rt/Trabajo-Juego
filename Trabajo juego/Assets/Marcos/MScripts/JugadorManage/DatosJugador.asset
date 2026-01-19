@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: DatosJugador
   m_EditorClassIdentifier: 
   VidaActual: 6
-  vidaMaxima: 6
-  EspaciosEquipables: 6
-  Dinero: 0
-  curarse: 1
+  vidaMaxima: 7
+  curarse: 0
   contadorGolpes: 0
   dashDesbloqueado: 0
+  llaveEncontrada: 0
+  EspaciosEquipables: 6
+  Dinero: 0

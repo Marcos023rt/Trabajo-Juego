@@ -56,6 +56,12 @@ public class PlayerInteract : MonoBehaviour
             case DesbloquearDash desbloquearDash:
                 desbloquearDash.Interactuar(this.gameObject);
                 break;
+            case Corazones corazones:
+                corazones.Interactuar(this.gameObject);
+                break;
+            case Llave llave:
+                llave.Interactuar(this.gameObject);
+                break;
 
             default:
                 Debug.LogWarning("Objeto interactuable no reconocido");
