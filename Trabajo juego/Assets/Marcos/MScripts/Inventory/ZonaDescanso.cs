@@ -49,20 +49,14 @@ public class ZonaDescanso : MonoBehaviour, interactive
         HuecosOcuparse();
     }
     public void Update()
-    {
-     for(int i=0; i<cartasDisponibles.Length; i++)
-        {
-            if (cartasDisponibles[i].CartaEncontrada== false)
-            {
-
-            }
-        }   
+    { 
     }
     #region Logica Abrir y cerrar el panel
-    public void Interactuar(GameObject jugador)
+    public void Interactuar(GameObject jugador) //entra aqui cada vez que el jugador interactue con el jugador;
     {
         Debug.Log("Has abierto el inventario.");
         MostrarInventario();
+        LimitadorEquiparse();
     }
     void MostrarInventario()
     {
@@ -80,30 +74,85 @@ public class ZonaDescanso : MonoBehaviour, interactive
         textodescripcion.text = cartasDisponibles[numeroCarta].descripcion;
     }
     #region Logica Equiparse Cartas
-    public void Limitadorequiparse() //usar esete codigo para denegar que se equipe cartas que no se halla encontrado, usar el dato del scriptable boleano para esto
+    public void LimitadorEquiparse() 
+    {
+        //usar esete codigo para denegar que se equipe cartas que no se halla encontrado, usar el dato del scriptable boleano para esto
         //tambien hay que capar cuando el no entre en el numero de huecos restante
-    {
-
+        //hacer que se limite dos cosas= 
+        //que e limite por los huecos que ocupa la carta
+        //que se limite si no tiene la carta encontrada
+        for (int i = 0; i < cartasDisponibles.Length; i++)
+        {
+            //en esta funcion ademas hay que comprobar si las cartas entran(en cuanto a espacio), para eso hay que ir comprobando el numero de huecos con el jugador
+            //con cada una de las cartas y hacerlas que se desactiven los botones de aquellas que no entren en los espacios que tenga el jugador 
+            if (cartasDisponibles[i].CartaEncontrada == false)
+            {
+                BotonesEquipar[i].interactable = false;
+                ArteCartas[i].fillCenter = false;
+            }
+            else
+            {
+                if(cartasDisponibles[i].CartaEncontrada == true)
+                {
+                    BotonesEquipar[i].interactable = true;
+                    ArteCartas[i].fillCenter = true;
+                    if (cartasDisponibles[i].CartaEquipada == false)
+                    {
+                        BotonesEquipar[i].interactable = true;
+                        if (cartasDisponibles[i].espaciosOcupa + datosJugador.espaciosOcupados <= datosJugador.EspaciosEquipables)
+                        {
+                            BotonesEquipar[i].interactable = true;
+                        }
+                        else
+                        {
+                            BotonesEquipar[i].interactable = false;
+                        }
+                    }
+                    else
+                    {
+                        if (cartasDisponibles[i].CartaEquipada == true)
+                        {
+                            BotonesEquipar[i].interactable = false;
+                        }
+                    }
+                }
+            }
+        }
     }
-    public void DesequiparseCarta() //cada una de las 5 celdas donde se puede equipar las carta tienen un pequeño boton de desequipar, hacer aqui eso( falta por crear esos botones)
+    public void Desequiparse() 
     {
+        //funciona como un reseteo, vacia el invetario entero al darle al boton
+        //hay que resetear los srpites de arriba*
+        //eliminar los huecos ( de forma visual)
+        //hacer que todas el booleano de las cartas "CartaEquipada" sea false *
+        //y poner el contador de huecos ocupados, del los datos del jugador, en 0*
+        // y llamar a la funcion que limita las cartas*
 
+        datosJugador.espaciosOcupados = 0; //reseteo del valor exterior
+        for(int i = 0; i < cartasDisponibles.Length; i++)
+        {
+            cartasDisponibles[i].CartaEquipada = false; //hacemos que todas las cartas se pongan en no equiparse
+        }
+        for(int i =0; i<5; i++) //los srpites de arriba se borran
+        {
+            HuecosArte[i].sprite = null;
+            HuecosOcupados[i].enabled = false;
+        }
+        LimitadorEquiparse();
     }
     public void EquiparCarta(int numeroCarta) //al darle al boton pone esta carta en true equipada 
     {
-        if ( cartasDisponibles[numeroCarta].espaciosOcupa+datosJugador.espaciosOcupados< datosJugador.EspaciosEquipables)
-        {
-            
-        }
         cartasDisponibles[numeroCarta].CartaEquipada = true;
         HuecosArte[contadorHuecos].sprite = ArteCartas[numeroCarta].sprite;
         contadorHuecos++;
-        DesabilitarEquipar(numeroCarta);
-    }
-    public void DesabilitarEquipar(int numeroCarta) //deshabilita el poder acer click en la carta que se acaba de equipar para equiparsela dos veces
-    {
-      BotonesEquipar[numeroCarta].interactable = false;
-        HuecosOcuparse();
+
+
+        datosJugador.espaciosOcupados += cartasDisponibles[numeroCarta].espaciosOcupa; //guardamos lo huecos ocupados en la variable del jugador
+        for(int i=0; i< datosJugador.espaciosOcupados; i++) //activamos los huecos ocupados
+        {
+            HuecosOcupados[i].enabled = true;
+        }
+        LimitadorEquiparse();
     }
     public void HuecosOcuparse() //activa segun el numero de hueco que se han equipado
     {

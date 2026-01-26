@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa44259628086a946ab81f5af29e2e74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  datosJugador: {fileID: 11400000, guid: 54c7a74ae1a78b14ba34fd9792f7fa8b, type: 2}
   cartasDisponibles:
   - {fileID: 11400000, guid: caf9fce8096776d4a91476b105d76255, type: 2}
   - {fileID: 11400000, guid: bb36bd7a77b55604a9ecc8fbd86d40f1, type: 2}
@@ -158,3 +159,44 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9c9e3b7257ba0a14b9967486e4b452ec, type: 2}
   - {fileID: 11400000, guid: d32a4a950e08acf4eb18e3463841fe4d, type: 2}
   pinventario: {fileID: 0}
+  textodescripcion: {fileID: 0}
+  HuecosArte:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ArteCartas:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  auxiliar: 0
+  HuecosOcupados:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  BotonesEquipar:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

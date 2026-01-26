@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Carta01
   m_EditorClassIdentifier: 
   nombreC: "El Puercoesp\xEDn"
-  descripcion: "Al recibir da\xF1o haces da\xF1o de area a tu alreddedor"
+  descripcion: "Al recibir da\xF1o haces da\xF1o de area a tu alrededor"
   sprite: {fileID: 0}
   precio: 125
   espaciosOcupa: 2

@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5319502011211141618}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -26.52, y: 12.08, z: 0}
   m_LocalScale: {x: 10.044478, y: 3.3666, z: 1}
   m_ConstrainProportionsScale: 0
@@ -157,3 +157,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 40ebf741e7e469f47b6428afae72af0c, type: 2}
   - {fileID: 11400000, guid: 9c9e3b7257ba0a14b9967486e4b452ec, type: 2}
   - {fileID: 11400000, guid: d32a4a950e08acf4eb18e3463841fe4d, type: 2}
+  datosjugador: {fileID: 11400000, guid: 54c7a74ae1a78b14ba34fd9792f7fa8b, type: 2}
+  pvendedor: {fileID: 0}
+  textodescripcion: {fileID: 0}
+  BotonesComprar:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

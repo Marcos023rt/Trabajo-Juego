@@ -7,6 +7,7 @@ public class Vendedor : MonoBehaviour, interactive
 {
     [Header("Cartas que vende")]
     [Tooltip("Meter las diferentes cartas que se han creado del ScriptableObjet")] public PlantillaCartas[] cartasDisponibles; // Arrastra aquí tus ScriptableObjects
+    public ScriptableJugador datosjugador;
     public GameObject pvendedor;
     public TMP_Text textodescripcion;
     #region Botones
@@ -25,10 +26,11 @@ public class Vendedor : MonoBehaviour, interactive
             }
         }
     }
-    public void Interactuar(GameObject jugador)
+    public void Interactuar(GameObject jugador) //entra aqui cada vez que el jugador interactue con el objeto que tenag este script, se maneja atraves de PlayerInteract
     {
         Debug.Log("Has hablado con el vendedor.");
         MostrarCartas();
+        comprobadorDinero();
     }
 
     void MostrarCartas()
@@ -40,6 +42,27 @@ public class Vendedor : MonoBehaviour, interactive
     private void comprobadorDinero()
     {
         //aqui habra que mirar el dinero del jugador y asi limitar cuando puede comprar las cartas, llamarlo al interactuar con el jugador y cuando compre una carta
+        for(int i=0; i<4; i++)
+        {
+            if (cartasDisponibles[i].CartaEncontrada == false)
+            {
+                if (datosjugador.Dinero < cartasDisponibles[i].precio) //comprobamos que tenga el dinero para que pueda comprar las cartas
+                {
+                    BotonesComprar[i].interactable = false;
+                }
+                if (datosjugador.Dinero >= cartasDisponibles[i].precio) //comprobamos que tenga el dinero para que pueda comprar las cartas
+                {
+                    BotonesComprar[i].interactable = true;
+                }
+            }
+            else
+            {
+                if (cartasDisponibles[i].CartaEncontrada == true)
+                {
+                    BotonesComprar[i].interactable = false;
+                }
+            }
+        }
     }
     public void SalirVendedor()
     {
@@ -53,8 +76,9 @@ public class Vendedor : MonoBehaviour, interactive
     public void comprarCarta(int numeroCarta)
     {
         cartasDisponibles[numeroCarta].CartaEncontrada = true;
+        datosjugador.Dinero -= cartasDisponibles[numeroCarta].precio;
         Debug.Log($"La carta: {numeroCarta}, esta en estado {cartasDisponibles[numeroCarta].CartaEncontrada} del inventario");
-        BotonesComprar[numeroCarta].interactable = false;
+        comprobadorDinero();
 
     }
 
