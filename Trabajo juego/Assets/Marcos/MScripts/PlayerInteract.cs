@@ -62,7 +62,9 @@ public class PlayerInteract : MonoBehaviour
             case Llave llave:
                 llave.Interactuar(this.gameObject);
                 break;
-
+            case AumentoEspacios aumentoEspacios:
+                aumentoEspacios.Interactuar(this.gameObject);
+                break;
             default:
                 Debug.LogWarning("Objeto interactuable no reconocido");
                 break;
