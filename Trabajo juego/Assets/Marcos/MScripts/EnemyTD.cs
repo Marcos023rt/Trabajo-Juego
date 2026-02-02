@@ -4,21 +4,17 @@ using UnityEngine;
 
 public class EnemyTD : MonoBehaviour
 {
-    public ScriptableJugador datosGeneralesJugador;
+    public ScriptableJugador datosJugador;
     public GameObject Jugador;
     public int health = 3;
     public void TakeDamage(int amount)
     {
         health -= amount;
-        Debug.Log("Enemigo dañado. HP restante: " + health);
-
         if (health <= 0)
         {
+            int dineroGanadoAlMatar = Random.Range(3, 8);
             Destroy(gameObject);
+            datosJugador.Dinero += dineroGanadoAlMatar;
         }
-    }
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-       
     }
 }

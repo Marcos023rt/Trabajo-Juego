@@ -9,6 +9,7 @@ using Unity.VisualScripting;
 
 public class UIMenuPincipal : MonoBehaviour
 {
+    public ScriptableJugador datosJugador;
     //este scrip gestiona toda la UI del menu principal :)
     #region PanelData
     [Header("Paneles")]
@@ -252,6 +253,10 @@ public class UIMenuPincipal : MonoBehaviour
     public void CambiarEscenas(string nombre)
     {
         SceneManager.LoadScene(nombre);
+    }
+    public void IrAlUltimoNivel()
+    {
+        SceneManager.LoadScene(datosJugador.NivelActual);
     }
     #endregion
 }

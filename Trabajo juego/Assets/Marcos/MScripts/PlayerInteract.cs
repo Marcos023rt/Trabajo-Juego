@@ -1,9 +1,12 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerInteract : MonoBehaviour
 {
+    public ScriptableJugador datosJugador;
+
     public float radioDeteccion = 1.2f;
     public LayerMask capaInteractuable;
     public KeyCode teclaInteraccion = KeyCode.E;
@@ -19,6 +22,10 @@ public class PlayerInteract : MonoBehaviour
         {
             EjecutarAccion(objetoCercano);
         }
+    }
+    private void Start()
+    {
+        datosJugador.NivelActual = SceneManager.GetActiveScene().name;
     }
 
     void DetectarObjetosCercanos()

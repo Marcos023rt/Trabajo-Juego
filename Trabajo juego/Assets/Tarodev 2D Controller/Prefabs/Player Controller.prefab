@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fd31fd3e394f8347a6f091579fc6f98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  datosJugador: {fileID: 11400000, guid: 54c7a74ae1a78b14ba34fd9792f7fa8b, type: 2}
   radioDeteccion: 4
   capaInteractuable:
     serializedVersion: 2

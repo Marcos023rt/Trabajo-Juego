@@ -21,4 +21,7 @@ public class ScriptableJugador : ScriptableObject
     [Space]
     [Space]
     public Vector2 jugadorSpawn;
+
+    [Space, Space]
+    public string NivelActual;
 }

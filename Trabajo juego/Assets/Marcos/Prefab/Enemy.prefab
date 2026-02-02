@@ -147,10 +147,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e614ecc83d61a243b097989e780fb16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  datosGeneralesJugador: {fileID: 11400000, guid: 54c7a74ae1a78b14ba34fd9792f7fa8b, type: 2}
+  datosJugador: {fileID: 11400000, guid: 54c7a74ae1a78b14ba34fd9792f7fa8b, type: 2}
   Jugador: {fileID: 0}
   health: 10
-  danio: 2
 --- !u!50 &8032395973314943690
 Rigidbody2D:
   serializedVersion: 4

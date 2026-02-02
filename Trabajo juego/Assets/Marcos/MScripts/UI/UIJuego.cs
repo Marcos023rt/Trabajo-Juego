@@ -9,6 +9,7 @@ using UnityEditor;
 
 public class UIJuego : MonoBehaviour
 {
+    public ScriptableJugador datosJugador;
     #region PanelData
     [Header("Paneles")]
     public GameObject PanelOpciones;
@@ -78,6 +79,9 @@ public class UIJuego : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1f;
+        #region PanelMuerte
+        panelMuerte.SetActive(false);
+        #endregion
         #region PanelesStart
         PanelOpciones.SetActive(false);
         PanelSalirDelJuego.SetActive(false);
@@ -193,8 +197,10 @@ public class UIJuego : MonoBehaviour
     //hay que hacer los botones de ir al menu principal y de reiniciar nivel, volver a cargar de 0 el nivel en el que este el jugador, no se olvide de cambiar su vida.
     public void MuerteJugador(GameObject jugador)
     {
+        panelMuerte.SetActive(true);
         jugador.SetActive(false);
         Time.timeScale = 0f;
+        datosJugador.VidaActual = datosJugador.vidaMaxima;
     }
     #endregion
 
@@ -302,6 +308,8 @@ public class UIJuego : MonoBehaviour
     public void CambiarEscenas(string nombre)
     {
         SceneManager.LoadScene(nombre);
+        panelMuerte.SetActive(false);
+        Time.timeScale = 1f;
     }
     #endregion
 }
