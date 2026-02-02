@@ -15,9 +15,11 @@ public class UIJuego : MonoBehaviour
     public GameObject PanelSalirDelJuego;
     public GameObject BotonesGenerales;
     #endregion
-
+    #region DataPanelMuerte
+    public GameObject panelMuerte;
+    #endregion
     #region VolumenData
-    [Header("Volumen")]
+    [Header("Brillo")]
     public Slider sliderVolumen;
     public Toggle Tmute;
     private float _valorGuardado;
@@ -182,6 +184,16 @@ public class UIJuego : MonoBehaviour
     public void PausaJuego()
     {
         BotonesGenerales.SetActive(true);
+        Time.timeScale = 0f;
+    }
+    #endregion
+    #region PanelMuerte
+    //se llama esta parte en los codigos que pueden bajar la variable de vida al jugador
+    //cuando este sea cero o menor se llamara en ellos a esta funcion
+    //hay que hacer los botones de ir al menu principal y de reiniciar nivel, volver a cargar de 0 el nivel en el que este el jugador, no se olvide de cambiar su vida.
+    public void MuerteJugador(GameObject jugador)
+    {
+        jugador.SetActive(false);
         Time.timeScale = 0f;
     }
     #endregion

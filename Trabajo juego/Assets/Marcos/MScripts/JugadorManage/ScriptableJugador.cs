@@ -18,4 +18,7 @@ public class ScriptableJugador : ScriptableObject
     public int EspaciosEquipables = 6;
     public int espaciosOcupados = 0;
     public int Dinero;
+    [Space]
+    [Space]
+    public Vector2 jugadorSpawn;
 }

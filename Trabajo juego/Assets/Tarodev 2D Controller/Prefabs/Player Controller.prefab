@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -3078415514110553700}
   - component: {fileID: 6069246160737903151}
   - component: {fileID: 6562905328789659622}
+  - component: {fileID: 6394323057143841395}
   m_Layer: 0
   m_Name: Player Controller
   m_TagString: Player
@@ -166,8 +167,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   datosJugador: {fileID: 11400000, guid: 54c7a74ae1a78b14ba34fd9792f7fa8b, type: 2}
   tiempoNecesario: 1
-  cura: 2
+  cura: 1
   numeroDeGolpesParaCurarse: 3
+--- !u!114 &6394323057143841395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544650614272011804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e66f35658d5cf42861ce0392900560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiJuego: {fileID: 0}
+  jugadorData: {fileID: 11400000, guid: 54c7a74ae1a78b14ba34fd9792f7fa8b, type: 2}
+  Jugador: {fileID: 1544650614272011804}
+  danioSpikes: 1
+  danioEnemigo: 2
 --- !u!1 &2969068311587289281
 GameObject:
   m_ObjectHideFlags: 0
