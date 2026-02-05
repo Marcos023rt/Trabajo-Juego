@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1123677f6b5b4fb4298d61afbe462032, type: 3}
   m_Name: DatosJugador
   m_EditorClassIdentifier: 
-  VidaActual: 6
+  VidaActual: 3
   vidaMaxima: 6
-  curarse: 0
-  contadorGolpes: 0
+  curarse: 1
+  contadorGolpes: 1
   dashDesbloqueado: 1
   llaveEncontrada: 0
   EspaciosEquipables: 6
   espaciosOcupados: 0
-  Dinero: 0
-  jugadorSpawn: {x: 0, y: 0}
-  NivelActual: Nivel 03
+  Dinero: 71
+  jugadorSpawn: {x: 53.65017, y: 109.75742}
+  NivelActual: Nivel 04
