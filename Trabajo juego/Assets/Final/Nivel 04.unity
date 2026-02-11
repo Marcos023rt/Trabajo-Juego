@@ -6098,6 +6098,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b3fe6087ce1b264ca78933b3c667452, type: 3}
+--- !u!114 &299119796 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2213281166982098345, guid: 5b3fe6087ce1b264ca78933b3c667452, type: 3}
+  m_PrefabInstance: {fileID: 299119795}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f7f0eaea1d0f447932abc17c025847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &301284735
 GameObject:
   m_ObjectHideFlags: 0
@@ -32110,11 +32121,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1544650614272011795, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 102.8
+      value: -7.7
       objectReference: {fileID: 0}
     - target: {fileID: 1544650614272011795, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 374.4
+      value: 17.3
       objectReference: {fileID: 0}
     - target: {fileID: 1544650614272011795, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -32152,6 +32163,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Controller
       objectReference: {fileID: 0}
+    - target: {fileID: 6562905328789659622, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
+      propertyPath: uijuego
+      value: 
+      objectReference: {fileID: 299119796}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

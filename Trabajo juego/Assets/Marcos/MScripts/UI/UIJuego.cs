@@ -9,7 +9,11 @@ using UnityEditor;
 
 public class UIJuego : MonoBehaviour
 {
+    #region VariedadDatoos
     public ScriptableJugador datosJugador;
+    public GameObject[] vidaUI;
+    public GameObject sePuedeCurarUI;
+    #endregion
     #region PanelData
     [Header("Paneles")]
     public GameObject PanelOpciones;
@@ -149,6 +153,16 @@ public class UIJuego : MonoBehaviour
             pantallaCompleta.isOn = true;
         }
         #endregion
+        #region ActualizadorVidaUI
+        for (int i = 0; i < vidaUI.Length; i++)
+        {
+            vidaUI[i].SetActive(false);
+        }
+        for (int i = 0; i < datosJugador.VidaActual; i++)
+        {
+            vidaUI[i].SetActive(true);
+        }
+        #endregion
     }
     #region Update
     public void Update()
@@ -157,9 +171,18 @@ public class UIJuego : MonoBehaviour
         {
             PausaJuego();
         }
+        #region ActualizadorCurarseUI
+        if (datosJugador.curarse == false)
+        {
+            sePuedeCurarUI.SetActive(false);
+        }
+        else
+        {
+            sePuedeCurarUI.SetActive(true);
+        }
+        #endregion
     }
     #endregion
-
     #region PanelSalida
     public void SalirJuego()
     {
@@ -203,7 +226,6 @@ public class UIJuego : MonoBehaviour
         datosJugador.VidaActual = datosJugador.vidaMaxima;
     }
     #endregion
-
     #region Continuar
     public void Continuar()
     {
@@ -310,6 +332,35 @@ public class UIJuego : MonoBehaviour
         SceneManager.LoadScene(nombre);
         panelMuerte.SetActive(false);
         Time.timeScale = 1f;
+        StartCoroutine(objetos());
+    }
+    IEnumerator objetos()
+    {
+        yield return new WaitForSeconds(1);
+        sePuedeCurarUI = GameObject.Find("UiSepuedeCurar");
+        vidaUI[0] = GameObject.Find("Vida01");
+        vidaUI[1] = GameObject.Find("Vida02");
+        vidaUI[2] = GameObject.Find("Vida03");
+        vidaUI[3] = GameObject.Find("Vida04");
+        vidaUI[4] = GameObject.Find("Vida05");
+        vidaUI[5] = GameObject.Find("Vida06");
+        vidaUI[6] = GameObject.Find("Vida07");
+        vidaUI[7] = GameObject.Find("Vida08");
+        vidaUI[8] = GameObject.Find("Vida09");
+        vidaUI[9] = GameObject.Find("Vida010");
+    }
+    #endregion
+    #region Cambiar VidaUI
+    public void cambiarVidaUI() 
+    {
+        for (int i = 0; i < vidaUI.Length; i++)
+        {
+            vidaUI[i].SetActive(false);
+        }
+        for (int i = 0; i < datosJugador.VidaActual; i++)
+        {
+            vidaUI[i].SetActive(true);
+        }
     }
     #endregion
 }

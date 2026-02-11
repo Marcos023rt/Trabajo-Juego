@@ -29,6 +29,7 @@ public class TouchSpikes : MonoBehaviour
             jugadorData.VidaActual -= danioEnemigo;
         }
         RecibirDaño();
+        uiJuego.cambiarVidaUI();
     }
     private void Aparecer()
     {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class JugadorHeal : MonoBehaviour
 {
+    public UIJuego uijuego;
     public ScriptableJugador datosJugador;
     public float tiempoNecesario;
     float tiempoPulsado;
@@ -48,6 +49,7 @@ public class JugadorHeal : MonoBehaviour
                     Debug.Log("El jugador se ha curado");
                     datosJugador.VidaActual += cura;
                     datosJugador.curarse = false;
+                    uijuego.cambiarVidaUI();
                 }
             }
         }

@@ -36328,6 +36328,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b3fe6087ce1b264ca78933b3c667452, type: 3}
+--- !u!114 &1700571169 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2213281166982098345, guid: 5b3fe6087ce1b264ca78933b3c667452, type: 3}
+  m_PrefabInstance: {fileID: 1700571168}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f7f0eaea1d0f447932abc17c025847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1700698225
 GameObject:
   m_ObjectHideFlags: 0
@@ -38086,6 +38097,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Controller
       objectReference: {fileID: 0}
+    - target: {fileID: 6562905328789659622, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
+      propertyPath: uijuego
+      value: 
+      objectReference: {fileID: 1700571169}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
