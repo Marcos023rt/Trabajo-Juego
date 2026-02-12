@@ -129,13 +129,16 @@ public class ZonaDescanso : MonoBehaviour, interactive
         // y llamar a la funcion que limita las cartas*
 
         datosJugador.espaciosOcupados = 0; //reseteo del valor exterior
-        for(int i = 0; i < cartasDisponibles.Length; i++)
+        for (int i = 0; i < cartasDisponibles.Length; i++)
         {
             cartasDisponibles[i].CartaEquipada = false; //hacemos que todas las cartas se pongan en no equiparse
         }
         for(int i =0; i<5; i++) //los srpites de arriba se borran
         {
             HuecosArte[i].sprite = null;
+        }
+        for (int i = 0; i < 10; i++) //los srites de los huecos
+        {
             HuecosOcupados[i].enabled = false;
         }
         LimitadorEquiparse();

@@ -37,7 +37,6 @@ public class Vendedor : MonoBehaviour, interactive
     {
         pvendedor.SetActive(true);
         Time.timeScale = 0f;
-      
     }
     private void comprobadorDinero()
     {
@@ -79,7 +78,5 @@ public class Vendedor : MonoBehaviour, interactive
         datosjugador.Dinero -= cartasDisponibles[numeroCarta].precio;
         Debug.Log($"La carta: {numeroCarta}, esta en estado {cartasDisponibles[numeroCarta].CartaEncontrada} del inventario");
         comprobadorDinero();
-
     }
-
 }

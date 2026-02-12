@@ -9332,6 +9332,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Controller
       objectReference: {fileID: 0}
+    - target: {fileID: 2969068313154050966, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2969068313154050967, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -855298285791758126, guid: 8062eebcbd20b7c479ff3110f1ebc7ff, type: 3}
+    - target: {fileID: 3318776192090172285, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6562905328789659622, guid: 88097b566ad1fdd489d7ee77465b57aa, type: 3}
       propertyPath: uijuego
       value: 
@@ -21128,8 +21140,8 @@ Transform:
   m_GameObject: {fileID: 1802762482}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.6135, y: 219.0616, z: 0.14755708}
-  m_LocalScale: {x: -114.1955, y: -15.808417, z: 1}
+  m_LocalPosition: {x: 4.6135, y: 219.3385, z: 0.14755708}
+  m_LocalScale: {x: -114.1955, y: -15.255122, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1692156037}
