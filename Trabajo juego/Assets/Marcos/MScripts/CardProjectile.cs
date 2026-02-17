@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class CardProjectile : MonoBehaviour
 {
+    
     public ScriptableJugador jugador;
-    public float speed = 10f;
+    public scriptableMejoras datosMejora;
+    public float speed;
     public float maxDistance = 8f;
-    public int damage = 1;
+    public int damage;
    
     private Vector2 startPos;
     private Vector2 direction;
@@ -15,6 +17,8 @@ public class CardProjectile : MonoBehaviour
 
     void Start()
     {
+        speed = datosMejora.speedcarta;
+        damage = datosMejora.danioCarta;
         startPos = transform.position;
     }
 

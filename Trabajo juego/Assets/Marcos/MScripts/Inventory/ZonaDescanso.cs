@@ -11,7 +11,9 @@ public class ZonaDescanso : MonoBehaviour, interactive
     //falta hacer que los sprites de los que estan equipados se actualicen en el start (sos)
     #region Data
     [Header("Cartas equipables")]
-    public ScriptableJugador datosJugador;
+    public JugadorHeal jugadorHeal;//usado para mejorar los atributos del jugador que se encuentran aqui dentro
+    public ScriptableJugador datosJugador; //scriptable general del jugador
+    public scriptableMejoras cartaAtributos; //en este scrip estan los valores que cambio opar hacer las mejoras a la carta
     [Header("Cartas equipables")]
     [Tooltip("Meter las diferentes cartas que se han creado del ScriptableObjet")] public PlantillaCartas[] cartasDisponibles;
 
@@ -55,12 +57,14 @@ public class ZonaDescanso : MonoBehaviour, interactive
     public void Interactuar(GameObject jugador) //entra aqui cada vez que el jugador interactue con el jugador;
     {
         Debug.Log("Has abierto el inventario.");
+        resetearMejoras();
         MostrarInventario();
         LimitadorEquiparse();
     }
     void MostrarInventario()
     {
         pinventario.SetActive(true);
+        hacerMejoras();
         Time.timeScale = 0f;
     }
     public void SalirInverntario()
@@ -171,6 +175,64 @@ public class ZonaDescanso : MonoBehaviour, interactive
         {
             HuecosOcupados[i].enabled = true;
         }
+    }
+    #endregion
+    #region Mejoras de las cartas
+    public void hacerMejoras()
+    {
+        if (cartasDisponibles[0].CartaEquipada == true) //si tiene la carta 0 se hacen sus mejoras
+        {
+            cartaAtributos.speedcarta = 57;
+        }
+        if (cartasDisponibles[1].CartaEquipada == true) //si tiene la carta 1se hacen sus mejoras
+        {
+
+        }
+        if (cartasDisponibles[2].CartaEquipada == true) //si tiene la carta 2se hacen sus mejoras
+        {
+            jugadorHeal.cura = 2;
+        }
+        if (cartasDisponibles[3].CartaEquipada == true) //si tiene la carta 3 se hacen sus mejoras
+        {
+
+        } 
+        if (cartasDisponibles[4].CartaEquipada == true) //si tiene la carta 4 se hacen sus mejoras
+        {
+
+        }
+        if (cartasDisponibles[5].CartaEquipada == true) //si tiene la carta 5 se hacen sus mejoras
+        {
+            cartaAtributos.danioCarta = 2;
+        }
+        if (cartasDisponibles[6].CartaEquipada == true) //si tiene la carta 6 se hacen sus mejoras
+        {
+
+        }
+        if (cartasDisponibles[7].CartaEquipada == true) //si tiene la carta 7 se hacen sus mejoras
+        {
+
+        }
+        if (cartasDisponibles[8].CartaEquipada == true) //si tiene la carta 8 se hacen sus mejoras
+        {
+            jugadorHeal.numeroDeGolpesParaCurarse = 2;
+        }
+        if (cartasDisponibles[9].CartaEquipada == true) //si tiene la carta 9 se hacen sus mejoras
+        {
+
+        }
+    }
+    public void resetearMejoras()
+    {
+  cartaAtributos.speedcarta = 35;           //0
+                                            //1
+                                            //2
+  jugadorHeal.cura = 1;                     //3
+                                            //4
+  cartaAtributos.danioCarta = 2;            //5
+                                            //6
+                                            //7
+  jugadorHeal.numeroDeGolpesParaCurarse = 2;//8
+                                            //9
     }
     #endregion
 }

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Carta09
   m_EditorClassIdentifier: 
   nombreC: El Pacto
-  descripcion: "Ahora se cura autom\xE1ticamente cada 6 golpes certeros"
+  descripcion: "Ahora se cura autom\xE1ticamente cada 4 golpes certeros"
   sprite: {fileID: 0}
   precio: 0
   espaciosOcupa: 6
   NumeroCarta: 9
-  CartaEncontrada: 0
+  CartaEncontrada: 1
   CartaEquipada: 0

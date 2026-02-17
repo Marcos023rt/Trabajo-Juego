@@ -18,5 +18,5 @@ MonoBehaviour:
   precio: 125
   espaciosOcupa: 2
   NumeroCarta: 1
-  CartaEncontrada: 0
+  CartaEncontrada: 1
   CartaEquipada: 0

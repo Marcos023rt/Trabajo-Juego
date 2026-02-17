@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   datosJugador: {fileID: 11400000, guid: 54c7a74ae1a78b14ba34fd9792f7fa8b, type: 2}
+  cartaAtributos: {fileID: 11400000, guid: f37231bb1bdb7354e9ef39d3f2d1f72e, type: 2}
   cartasDisponibles:
   - {fileID: 11400000, guid: caf9fce8096776d4a91476b105d76255, type: 2}
   - {fileID: 11400000, guid: bb36bd7a77b55604a9ecc8fbd86d40f1, type: 2}
