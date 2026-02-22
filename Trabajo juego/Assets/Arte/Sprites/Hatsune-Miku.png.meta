@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Hatsune-Miku_0: -5580064124265118242
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
