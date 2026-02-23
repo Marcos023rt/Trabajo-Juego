@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   datosJugador: {fileID: 11400000, guid: 54c7a74ae1a78b14ba34fd9792f7fa8b, type: 2}
   Jugador: {fileID: 0}
-  health: 10
+  health: 3
 --- !u!50 &8032395973314943690
 Rigidbody2D:
   serializedVersion: 4
@@ -192,8 +192,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jugador: {fileID: 0}
   estadoActual: 0
-  velocidadPatrulla: 3
-  velocidadPersecucion: 6
+  velocidadPatrulla: 2.45
+  velocidadPersecucion: 5
   rangoDeteccion: 9.15
   rangoAtaque: 1.2
   puntoA: {fileID: 0}

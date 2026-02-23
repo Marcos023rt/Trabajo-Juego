@@ -427,6 +427,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3428190271785960514, guid: 5b3fe6087ce1b264ca78933b3c667452, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3428190271785960514, guid: 5b3fe6087ce1b264ca78933b3c667452, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 540
+      objectReference: {fileID: 0}
     - target: {fileID: 5401162725593006738, guid: 5b3fe6087ce1b264ca78933b3c667452, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -820,11 +828,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jugador: {fileID: 2072048178}
-  velocidadCaminar: 4.42
-  velocidadAcercarse: 6.16
+  velocidadCaminar: 6
+  velocidadAcercarse: 15
   tiempoEntreAtaques: 1.6
-  fuerzaSalto: 9.3
-  velocidadAerea: 8.1
+  fuerzaSalto: 10.47
+  velocidadAerea: 15
   hitboxBaston: {fileID: 1950680962}
   duracionBaston: 1.21
 --- !u!212 &1281242455
