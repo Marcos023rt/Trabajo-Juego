@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class bossFinal : MonoBehaviour
 {
     public Transform jugador;
@@ -11,6 +10,10 @@ public class bossFinal : MonoBehaviour
     public float velocidadCaminar = 2f;
     public float velocidadAcercarse = 4f;
 
+    [Header("Carga")]
+    public float velocidadCarga = 8f;
+    public float duracionCarga = 1.5f;
+
     [Header("Tiempos")]
     public float tiempoEntreAtaques = 2f;
 
@@ -19,7 +22,7 @@ public class bossFinal : MonoBehaviour
     public float velocidadAerea = 5f;
 
     [Header("Bastón")]
-    public GameObject hitboxBaston; // GameObject hijo con collider y sprite
+    public GameObject hitboxBaston;
     public float duracionBaston = 0.5f;
     private Transform transformBaston;
 
@@ -29,7 +32,8 @@ public class bossFinal : MonoBehaviour
     {
         SaltoAplastador,
         Baston,
-        Combo
+        Combo,
+        Carga
     }
 
     private TipoAtaque ultimoAtaque;
@@ -57,7 +61,7 @@ public class bossFinal : MonoBehaviour
 
     IEnumerator BucleIA()
     {
-        yield return new WaitForSeconds(2f); // pequeña intro
+        yield return new WaitForSeconds(2f);
 
         while (true)
         {
@@ -82,7 +86,8 @@ public class bossFinal : MonoBehaviour
         {
             TipoAtaque.SaltoAplastador,
             TipoAtaque.Baston,
-            TipoAtaque.Combo
+            TipoAtaque.Combo,
+            TipoAtaque.Carga
         };
 
         ataques.Remove(ultimoAtaque);
@@ -111,12 +116,15 @@ public class bossFinal : MonoBehaviour
             case TipoAtaque.Combo:
                 yield return StartCoroutine(AtaqueCombo());
                 break;
+
+            case TipoAtaque.Carga:
+                yield return StartCoroutine(AtaqueCarga());
+                break;
         }
 
         ejecutandoAtaque = false;
     }
 
-    // ------------------ ATAQUES ------------------
 
     IEnumerator AtaqueSaltoAplastador()
     {
@@ -139,16 +147,13 @@ public class bossFinal : MonoBehaviour
         float direccion = jugador.position.x - transform.position.x;
         GirarHacia(direccion);
 
-        // Acercarse al jugador
         rb.velocity = new Vector2(Mathf.Sign(direccion) * velocidadAcercarse, 0);
         yield return new WaitForSeconds(0.5f);
 
         rb.velocity = Vector2.zero;
 
-        // Wind-up
         yield return new WaitForSeconds(0.4f);
 
-        // Activar hitbox y sprite del bastón
         if (hitboxBaston != null)
             yield return StartCoroutine(ActivarBaston());
 
@@ -167,20 +172,38 @@ public class bossFinal : MonoBehaviour
 
         rb.velocity = new Vector2(Mathf.Sign(direccion) * velocidadAerea, rb.velocity.y);
 
-        // Mientras cae, activar hitbox bastón
         if (hitboxBaston != null)
             hitboxBaston.SetActive(true);
 
         yield return new WaitUntil(() => Mathf.Abs(rb.velocity.y) < 0.1f);
 
-        // Desactivar hitbox al aterrizar
         if (hitboxBaston != null)
             hitboxBaston.SetActive(false);
 
         yield return new WaitForSeconds(0.3f);
     }
 
-    // ------------------ FUNCIONES AUXILIARES ------------------
+    IEnumerator AtaqueCarga()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        float direccion = jugador.position.x - transform.position.x;
+        GirarHacia(direccion);
+
+        float tiempo = 0f;
+
+        while (tiempo < duracionCarga)
+        {
+            rb.velocity = new Vector2(Mathf.Sign(direccion) * velocidadCarga, 0);
+            tiempo += Time.deltaTime;
+            yield return null;
+        }
+
+        rb.velocity = Vector2.zero;
+
+        yield return new WaitForSeconds(0.4f);
+    }
+
 
     IEnumerator ActivarBaston()
     {
@@ -191,20 +214,13 @@ public class bossFinal : MonoBehaviour
 
     void GirarHacia(float direccion)
     {
-        // Girar solo horizontalmente usando Y
         if (direccion > 0)
-            transform.rotation = Quaternion.Euler(0, 180, 0);  // mirando derecha
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         else if (direccion < 0)
-            transform.rotation = Quaternion.Euler(0, 0, 0); // mirar izquierda
+            transform.rotation = Quaternion.Euler(0, 0, 0);
 
-        // Girar el bastón para que siga al boss
         if (transformBaston != null)
         {
-            Vector3 escala = transformBaston.localScale;
-            escala.x = Mathf.Abs(escala.x); // asegurarse que X positiva
-            transformBaston.localScale = escala;
-
-            // Ajustar rotación del bastón
             transformBaston.rotation = transform.rotation;
         }
     }

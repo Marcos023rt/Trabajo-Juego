@@ -830,6 +830,8 @@ MonoBehaviour:
   jugador: {fileID: 2072048178}
   velocidadCaminar: 6
   velocidadAcercarse: 15
+  velocidadCarga: 18.7
+  duracionCarga: 1.66
   tiempoEntreAtaques: 1.6
   fuerzaSalto: 10.47
   velocidadAerea: 15
