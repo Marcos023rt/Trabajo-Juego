@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8062eebcbd20b7c479ff3110f1ebc7ff
+guid: 6e9621b82baf4ed42bd4afd567f6def7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -855298285791758126
-    second: 1_0
+      213: -7672578235329069603
+    second: curacion 2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 1_0
+      name: curacion 2_0
       rect:
         serializedVersion: 2
-        x: 180
+        x: 197
         y: 5
-        width: 169
-        height: 675
+        width: 158
+        height: 632
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d8b16a9dbe5124f0800000000000000
-      internalID: -855298285791758126
+      spriteID: ddd31dbfeb6858590800000000000000
+      internalID: -7672578235329069603
       vertices: []
       indices: 
       edges: []
@@ -131,7 +131,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      1_0: -855298285791758126
+      curacion 2_0: -7672578235329069603
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
