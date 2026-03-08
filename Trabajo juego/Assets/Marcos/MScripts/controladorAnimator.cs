@@ -2,25 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class controladorAnimator : MonoBehaviour
+public class ControladorAnimator : MonoBehaviour
 {
-    public  Rigidbody2D rb;
+    public Rigidbody2D rb;
     public Animator animacionJugador;
-    private bool moverse;
-    
-    // Update is called once per frame
+
+    private bool dasheando;
+
     void Update()
     {
-        moverse = rb.velocity.magnitude > 0.1f; //me dice si se esta moviendo o no
-        animacionJugador.SetBool("Moviendose", moverse); //hace la animacion si se esta moviendo
+        float velocidad = rb.velocity.magnitude;
+        animacionJugador.SetFloat("movimiento", velocidad);
 
-        if (Input.GetKeyDown(KeyCode.W)) //animacion de curarse
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            animacionJugador.SetBool("Curandose", true);
+            animacionJugador.SetBool("saltando", true);
         }
+        if (rb.velocity.y <= 0.01)
+        {
+            animacionJugador.SetBool("saltando", false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            dasheando = true;
+            animacionJugador.SetBool("dasheando", true);
+        }
+        else
+        {
+
+            dasheando = false;
+            animacionJugador.SetBool("dasheando", false);
+        }
+
+
+       
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            animacionJugador.SetBool("curandose", true);
+        }
+
         if (Input.GetKeyUp(KeyCode.W))
         {
-            animacionJugador.SetBool("Curandose", false);
+            animacionJugador.SetBool("curandose", false);
         }
     }
 }
